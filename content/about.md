@@ -2,8 +2,6 @@
 title: "About Us"
 ---
 
-# Welcome to Astora Games
-
 We are a passionate team of game developers and retro gaming enthusiasts dedicated to creating unique arcade experiences that blend classic gameplay with modern innovation.
 
 ## Our Mission

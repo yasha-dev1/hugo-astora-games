@@ -44,25 +44,11 @@
       <description></description>
     </item>
     <item>
-      <title>Need for Speed</title>
-      <link>http://localhost:1313/games/needforspeed/</link>
-      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/games/needforspeed/</guid>
-      <description>&lt;p&gt;Experience the thrill of underground street racing in this legendary arcade racing game. Customize your car with hundreds of performance upgrades and visual modifications, race through neon-lit city streets, and climb the ranks to become the ultimate street racing champion.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Pixel Dungeons</title>
-      <link>http://localhost:1313/games/pixel-dungeons/</link>
-      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/games/pixel-dungeons/</guid>
-      <description>&lt;p&gt;Descend into the depths of procedurally generated dungeons in this challenging roguelike adventure. Each run is unique, with countless items to discover and monsters to defeat.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>About Us</title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h1 id=&#34;welcome-to-astora-games&#34;&gt;Welcome to Astora Games&lt;/h1&gt;&#xA;&lt;p&gt;We are a passionate team of game developers and retro gaming enthusiasts dedicated to creating unique arcade experiences that blend classic gameplay with modern innovation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-mission&#34;&gt;Our Mission&lt;/h2&gt;&#xA;&lt;p&gt;At Astora Games, we believe in the timeless appeal of arcade gaming. Our mission is to craft games that capture the essence of the golden age of arcades while incorporating contemporary game design and technology.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-we-do&#34;&gt;What We Do&lt;/h2&gt;&#xA;&lt;p&gt;We specialize in developing games that feature:&lt;/p&gt;</description>
+      <description>&lt;p&gt;We are a passionate team of game developers and retro gaming enthusiasts dedicated to creating unique arcade experiences that blend classic gameplay with modern innovation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-mission&#34;&gt;Our Mission&lt;/h2&gt;&#xA;&lt;p&gt;At Astora Games, we believe in the timeless appeal of arcade gaming. Our mission is to craft games that capture the essence of the golden age of arcades while incorporating contemporary game design and technology.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-we-do&#34;&gt;What We Do&lt;/h2&gt;&#xA;&lt;p&gt;We specialize in developing games that feature:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -19,7 +19,7 @@
     <!-- Dark Gradient Overlays for Transitions -->
     <div class="absolute z-10 inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 via-black/50 to-transparent"></div>
     <div class="absolute z-10 inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
-</div>
+  </div>
   
   <div class="container mx-auto max-w-7xl relative z-10">
     <h2 class="font-arcade text-3xl md:text-4xl mb-6 text-neon-pink animate-neon text-shadow-neon text-center">
@@ -27,14 +27,18 @@
       <div class="h-1 w-24 bg-gradient-to-r from-purple-500 to-neon-pink mx-auto mt-4"></div>
     </h2>
     
+    <!-- Featured Games Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {{ range $games }}
       <a href="{{ .RelPermalink }}" class="block group hover:transform hover:scale-[1.02] transition-all duration-300">
         <article class="card h-full bg-arcade-dark/50 rounded-lg p-4 border-2 border-arcade-lighter hover:border-neon-pink/50 transition-colors">
-          <!-- Game Image -->
+          <!-- Game Thumbnail -->
           <div class="relative aspect-video mb-4 overflow-hidden rounded-lg">
+            {{ if .Params.thumbnail }}
             <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover">
-            <!-- Status Badge -->
+            {{ end }}
+            
+            <!-- Game Status -->
             <div class="absolute top-3 right-3">
               <span class="px-3 py-1 text-xs font-arcade rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/50">
                 {{ .Params.status }}
@@ -48,15 +52,26 @@
           </h3>
           <p class="text-white/70 text-sm mb-4 line-clamp-2">{{ .Params.description }}</p>
           
+          <!-- Game Stats -->
+          <div class="flex items-center gap-4 mb-4">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-neon-pink mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span class="text-neon-pink text-sm">{{ .Params.active_users }}</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-neon-pink mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span class="text-neon-pink text-sm">{{ .Params.difficulty }}</span>
+            </div>
+          </div>
+          
           <!-- Tags -->
           <div class="flex flex-wrap gap-2">
             {{ range first 2 .Params.genre }}
             <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
-              {{ . }}
-            </span>
-            {{ end }}
-            {{ range first 2 .Params.platforms }}
-            <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
               {{ . }}
             </span>
             {{ end }}

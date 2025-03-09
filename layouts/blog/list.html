@@ -7,29 +7,31 @@
             <!-- Blog Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {{ range .Pages }}
-                <article class="bg-arcade-dark border-2 border-arcade-lighter rounded-lg overflow-hidden hover:border-neon-pink transition-colors group">
-                    {{ with .Params.thumbnail }}
-                    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
-                    {{ end }}
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 text-sm text-white/50 mb-4">
-                            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-                            {{ with .Params.category }}
-                            <span class="px-2 py-1 bg-arcade-darker rounded text-neon-blue">{{ . }}</span>
-                            {{ end }}
+                <a href="{{ .RelPermalink }}" class="block group">
+                    <article class="bg-arcade-dark border-2 border-arcade-lighter rounded-lg overflow-hidden hover:border-neon-pink transition-colors h-full">
+                        {{ with .Params.thumbnail }}
+                        <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
+                        {{ end }}
+                        <div class="p-6">
+                            <div class="flex items-center gap-4 text-sm text-white/50 mb-4">
+                                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                                {{ with .Params.category }}
+                                <span class="px-2 py-1 bg-arcade-darker rounded text-neon-blue">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                            <h2 class="font-arcade text-xl text-white group-hover:text-neon-pink mb-4 transition-colors">
+                                {{ .Title }}
+                            </h2>
+                            <p class="text-white/70 mb-6">{{ .Params.description }}</p>
+                            <div class="inline-flex items-center text-neon-pink">
+                                Read More
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
                         </div>
-                        <h2 class="font-arcade text-xl text-white group-hover:text-neon-pink mb-4 transition-colors">
-                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        </h2>
-                        <p class="text-white/70 mb-6">{{ .Summary }}</p>
-                        <a href="{{ .RelPermalink }}" class="inline-flex items-center text-neon-pink">
-                            Read More
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                </article>
+                    </article>
+                </a>
                 {{ end }}
             </div>
         </div>

@@ -15,19 +15,5 @@
       <guid>http://localhost:1313/games/space-shooter/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Need for Speed</title>
-      <link>http://localhost:1313/games/needforspeed/</link>
-      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/games/needforspeed/</guid>
-      <description>&lt;p&gt;Experience the thrill of underground street racing in this legendary arcade racing game. Customize your car with hundreds of performance upgrades and visual modifications, race through neon-lit city streets, and climb the ranks to become the ultimate street racing champion.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Pixel Dungeons</title>
-      <link>http://localhost:1313/games/pixel-dungeons/</link>
-      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/games/pixel-dungeons/</guid>
-      <description>&lt;p&gt;Descend into the depths of procedurally generated dungeons in this challenging roguelike adventure. Each run is unique, with countless items to discover and monsters to defeat.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

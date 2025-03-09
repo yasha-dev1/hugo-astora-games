@@ -5,8 +5,9 @@ thumbnail: "/images/games/space-shooter.jpg"
 date: 2025-03-09T20:42:04+01:00
 draft: false
 genre: ["Action", "Arcade"]
-platforms: ["Web"]
 status: "Live"
+active_users: "2.5K"
+difficulty: "Medium"
 controls:
   - key: "←→"
     action: "Move"
