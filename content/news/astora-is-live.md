@@ -1,50 +1,28 @@
 ---
-title: "Welcome to Astora Games"
-date: 2025-03-09T20:55:18+01:00
+
+title: "Escape From Tarkov Introduces Scav Changes"
+date: 2023-10-20T14:30:00+01:00
 draft: false
-author: "The Astora Team"
-category: "Announcements"
-tags: ["news", "updates", "company"]
-thumbnail: "/images/blogs/welcome-astora.jpg"
-description: "Introducing Astora Games - where retro meets modern in the world of browser gaming."
+author: "Gaming Insights Team"
+category: "Game Updates"
+tags: ["Escape from Tarkov", "Updates", "Gaming"]
+description: "Discover the latest changes to Scavs in Escape from Tarkov, based on player feedback and surveys."
+
 ---
 
-We're thrilled to officially launch Astora Games, your new destination for retro-inspired browser games with a modern twist. Our mission is to create engaging, accessible games that combine the charm of classic arcade games with contemporary gameplay mechanics.
+Escape from Tarkov, the popular extraction shooter, has introduced significant changes to its Scavengers (Scavs) based on recent player feedback. These updates aim to enhance gameplay and cater to player preferences, ensuring a more balanced and engaging experience.
 
-## Our Vision
+## Key Changes
 
-At Astora Games, we believe that great games don't need to be complicated. We focus on:
+- **Delayed Scav Spawns**: Scavs will now spawn later into raids, specifically no earlier than 17 minutes after the start, aligning with player preferences expressed in a recent survey.
+- **Improved Gear with Fence Rating**: Fence reputation will now have a more significant impact on Scav gear quality, offering better equipment to players with higher reputations.
 
-- **Accessibility**: All our games run directly in your browser
-- **Retro Aesthetics**: Beautiful pixel art and neon-cyberpunk visuals
-- **Modern Gameplay**: Classic concepts reimagined with modern game design
-- **Community Focus**: Built for and with our gaming community
+## Player-Driven Enhancements
 
-## What's Coming
+Battlestate Games, the developer of Escape from Tarkov, revealed that these changes were driven by player surveys. They also highlighted that a substantial portion of players prefer peaceful Scav interactions, reinforcing the benefits of non-aggressive playstyles.
 
-We're launching with our first title, Space Shooter, a modern take on the classic arcade shooter. But that's just the beginning! Here's what's in our pipeline:
+## Future Updates
 
-1. **Pixel Dungeons**: A roguelike adventure game
-2. **Neon Racer**: High-speed racing with a synthwave twist
-3. **Cyber Defense**: Tower defense with a cyberpunk theme
+The developer is committed to ongoing balance improvements, using telemetry data and player feedback. While further changes are anticipated, details remain under wraps as the game continues to refine its Scav gameplay.
 
-## Join Our Community
-
-We're building more than just games - we're building a community. Here's how you can get involved:
-
-- Follow us on [Twitter](https://twitter.com/astoragames)
-- Join our [Discord](https://discord.gg/astoragames)
-- Star our [GitHub](https://github.com/astoragames) repositories
-- Subscribe to our newsletter
-
-## Stay Tuned
-
-This is just the beginning of our journey. We'll be regularly updating this blog with:
-
-- Development updates
-- Behind-the-scenes looks at our game creation process
-- Community spotlights
-- Technical deep dives
-- Game design insights
-
-Thank you for joining us on this exciting adventure. Game on!
+Escape from Tarkov remains in beta, with no official version 1.0 release date announced. Stay tuned for upcoming updates as the game approaches its eighth anniversary in July 2025.

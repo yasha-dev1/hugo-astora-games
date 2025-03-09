@@ -14,9 +14,6 @@
     <loc>http://localhost:1313/contact/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/</loc>
-    <lastmod>2025-03-09T20:55:18+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/news/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
@@ -35,14 +32,23 @@
     <loc>http://localhost:1313/blog/welcome-to-astora-games/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/astora-is-live/</loc>
-    <lastmod>2025-03-09T20:55:18+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/games/</loc>
     <lastmod>2025-03-09T20:42:04+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/games/space-shooter/</loc>
     <lastmod>2025-03-09T20:42:04+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/escape-from-tarkov/</loc>
+    <lastmod>2023-10-20T14:30:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/astora-is-live/</loc>
+    <lastmod>2023-10-20T14:30:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/gaming/</loc>
+    <lastmod>2023-10-20T14:30:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/</loc>
+    <lastmod>2023-10-20T14:30:00+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
