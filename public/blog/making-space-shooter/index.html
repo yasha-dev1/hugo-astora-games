@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Making of Space Shooter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        @keyframes neonPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .animate-neon {
+            animation: neonPulse 2s infinite;
+        }
+        .text-shadow-neon {
+            text-shadow: 0 0 10px rgba(255, 16, 240, 0.5),
+                       0 0 20px rgba(255, 16, 240, 0.3),
+                       0 0 30px rgba(255, 16, 240, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-arcade-darker text-white font-arcade min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-arcade-darker/80 backdrop-blur-lg border-b border-arcade-lighter">
+    <div class="container mx-auto px-6 h-16">
+        <nav class="flex items-center justify-between h-full">
+            
+            <a href="/" class="font-arcade text-2xl text-neon-pink hover:text-neon-pink-light transition-colors">
+                AstoraGames
+            </a>
+
+            
+            <ul class="flex items-center space-x-8">
+                <li>
+                    <a href="/games" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        Games
+                    </a>
+                </li>
+                <li>
+                    <a href="/blog" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main class="flex-grow pt-16">
+        
+<div class="min-h-screen bg-arcade-darker pt-32">
+    <div class="container mx-auto px-6">
+        <article class="max-w-4xl mx-auto">
+            
+            <header class="mb-12">
+                <h1 class="font-arcade text-4xl text-neon-pink mb-6 animate-neon">The Making of Space Shooter</h1>
+                <div class="flex items-center gap-6 text-white/50">
+                    <time datetime="2025-03-09">March 9, 2025</time>
+                    
+                    <span>By Dev Team</span>
+                    
+                    
+                    <span class="px-3 py-1 bg-arcade-dark rounded-full text-neon-blue border border-neon-blue/20">
+                        Development
+                    </span>
+                    
+                </div>
+            </header>
+
+            
+            
+            <img src="/images/blog/space-shooter-dev.jpg" alt="The Making of Space Shooter" class="w-full h-96 object-cover rounded-lg mb-12">
+            
+
+            
+            <div class="prose prose-invert prose-lg max-w-none">
+                <h1 id="the-making-of-space-shooter">The Making of Space Shooter</h1>
+<p>Our journey in creating Space Shooter, Astora Games&rsquo; first release, was filled with exciting challenges and learning opportunities. In this post, we&rsquo;ll take you behind the scenes of our development process.</p>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p>When designing Space Shooter, we wanted to capture the essence of classic arcade shooters while adding modern elements that today&rsquo;s players expect. Our core design principles were:</p>
+<ol>
+<li><strong>Instant Fun</strong>: Players should be able to jump in and have fun immediately</li>
+<li><strong>Progressive Challenge</strong>: Difficulty that scales with player skill</li>
+<li><strong>Visual Feedback</strong>: Clear, satisfying feedback for every player action</li>
+<li><strong>Modern Controls</strong>: Smooth, responsive controls that feel natural on modern devices</li>
+</ol>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<p>Space Shooter is built using vanilla JavaScript and HTML5 Canvas. Here are some key technical features:</p>
+<ul>
+<li><strong>Particle Systems</strong>: For explosions and visual effects</li>
+<li><strong>Sound Management</strong>: Dynamic audio system for effects and music</li>
+<li><strong>Collision Detection</strong>: Efficient collision checking for smooth gameplay</li>
+<li><strong>State Management</strong>: Clean game state handling for pausing and resuming</li>
+</ul>
+<h2 id="art-direction">Art Direction</h2>
+<p>Our art team went through several iterations to achieve the perfect balance of retro and modern:</p>
+<ul>
+<li>Neon-infused color palette</li>
+<li>Smooth particle effects</li>
+<li>Modern UI elements</li>
+<li>Classic pixel art sprites</li>
+</ul>
+<h2 id="future-updates">Future Updates</h2>
+<p>We&rsquo;re already working on new features for Space Shooter:</p>
+<ul>
+<li>Online leaderboards</li>
+<li>New enemy types</li>
+<li>Power-up system</li>
+<li>Alternative game modes</li>
+</ul>
+<p>Stay tuned for more updates on Space Shooter and our upcoming games!</p>
+
+            </div>
+
+            
+            
+            <div class="mt-12 pt-6 border-t border-arcade-lighter">
+                <h3 class="font-arcade text-neon-blue mb-4">Tags</h3>
+                <div class="flex flex-wrap gap-2">
+                    
+                    <a href="/tags/game-dev" class="px-3 py-1 bg-arcade-dark rounded-full text-white/70 border border-arcade-lighter hover:border-neon-pink hover:text-neon-pink transition-colors">
+                        #game-dev
+                    </a>
+                    
+                    <a href="/tags/behind-the-scenes" class="px-3 py-1 bg-arcade-dark rounded-full text-white/70 border border-arcade-lighter hover:border-neon-pink hover:text-neon-pink transition-colors">
+                        #behind-the-scenes
+                    </a>
+                    
+                    <a href="/tags/space-shooter" class="px-3 py-1 bg-arcade-dark rounded-full text-white/70 border border-arcade-lighter hover:border-neon-pink hover:text-neon-pink transition-colors">
+                        #space-shooter
+                    </a>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="mt-12 flex items-center gap-4">
+                <span class="text-white/70">Share:</span>
+                <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fblog%2Fmaking-space-shooter%2F&text=The&#43;Making&#43;of&#43;Space&#43;Shooter" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-neon-blue transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fblog%2Fmaking-space-shooter%2F" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-neon-blue transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </div>
+</div>
+
+    </main>
+    
+<footer class="relative bg-arcade-darker overflow-hidden isolate">
+
+    
+    <div class="relative w-full h-px bg-gradient-to-r from-transparent via-neon-pink to-transparent opacity-50"></div>
+
+    <div class="container relative z-10 mx-auto px-6 py-24">
+        <div class="mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+            <div class="space-y-10">
+                <h3 class="font-arcade text-neon-pink text-2xl">Quick Links</h3>
+                <ul class="space-y-6">
+                    <li class="py-2"><a href="/games" class="text-white/70 hover:text-neon-blue transition-colors duration-300">All Games</a></li>
+                    <li class="py-2"><a href="/blog" class="text-white/70 hover:text-neon-blue transition-colors duration-300">Blog</a></li>
+                    <li class="py-2"><a href="/about" class="text-white/70 hover:text-neon-blue transition-colors duration-300">About Us</a></li>
+                    <li class="py-2"><a href="/news" class="text-white/70 hover:text-neon-blue transition-colors duration-300">News</a></li>
+                </ul>
+            </div>
+            <div class="space-y-10">
+                <h3 class="font-arcade text-neon-blue text-2xl">Support</h3>
+                <ul class="space-y-6">
+                    <li class="py-2"><a href="/contact" class="text-white/70 hover:text-neon-blue transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div class="space-y-10">
+                <h3 class="font-arcade text-neon-pink text-2xl">Legal</h3>
+                <ul class="space-y-6">
+                    <li class="py-2"><a href="/privacy" class="text-white/70 hover:text-neon-blue transition-colors duration-300">Privacy Policy</a></li>
+                    <li class="py-2"><a href="/terms" class="text-white/70 hover:text-neon-blue transition-colors duration-300">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="space-y-10">
+                <h3 class="font-arcade text-neon-blue text-2xl">Connect</h3>
+                <div class="space-y-8">
+                    
+                    <div class="flex space-x-6">
+                        <a href="#" class="w-14 h-14 rounded-lg bg-arcade-dark border-2 border-neon-blue/20 flex items-center justify-center group hover:border-neon-blue transition-colors duration-300">
+                            <svg class="w-6 h-6 text-white/70 group-hover:text-neon-blue transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-10 border-t border-neon-pink/20 text-center">
+            <p class="pt-8 font-arcade text-white/50 text-sm">&copy; 2025 Astora Games. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

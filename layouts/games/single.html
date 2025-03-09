@@ -1,32 +1,174 @@
 {{ define "main" }}
-<!-- Hero Section -->
-{{ partial "hero" . }}
+{{ with resources.Get (printf "games/%s/game.js" .File.ContentBaseName) }}
+    <!-- Game Scripts -->
+    <script src="{{ .RelPermalink }}"></script>
+{{ end }}
 
-<!-- Game Content -->
-<div class="container py-16">
-    <div class="prose prose-invert max-w-none">
-        <!-- Game Description -->
-        <div class="card mb-12 backdrop-blur-sm bg-arcade-dark/80">
-            {{ .Content }}
+<div class="min-h-screen bg-arcade-darker">
+    <!-- Game Info Section -->
+    <div class="container mx-auto px-6 py-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-wrap items-start gap-8">
+                <!-- Game Details -->
+                <div class="flex-1 min-w-[280px]">
+                    <h1 class="font-arcade text-4xl text-neon-pink mb-4 animate-neon text-shadow-neon">{{ .Title }}</h1>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {{ range .Params.genre }}
+                        <span class="px-3 py-1 text-sm rounded-full bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                            {{ . }}
+                        </span>
+                        {{ end }}
+                        {{ range .Params.platforms }}
+                        <span class="px-3 py-1 text-sm rounded-full bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                            {{ . }}
+                        </span>
+                        {{ end }}
+                    </div>
+                    <p class="text-white/70 text-lg mb-8">{{ .Params.description }}</p>
+                    
+                    <!-- Game Controls -->
+                    <div class="bg-arcade-dark border-2 border-arcade-lighter rounded-lg p-6 mb-8">
+                        <h3 class="font-arcade text-neon-blue text-xl mb-4">Controls</h3>
+                        <div class="grid grid-cols-2 gap-4 text-white/70">
+                            {{ range .Params.controls }}
+                            <div class="flex items-center space-x-3">
+                                <kbd class="px-2 py-1 bg-arcade-darker rounded border border-neon-pink/20 font-arcade">{{ .key }}</kbd>
+                                <span>{{ .action }}</span>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- Features List -->
-        {{ with .Params.features }}
-        <div class="card backdrop-blur-sm bg-arcade-dark/80">
-            <h2 class="title text-2xl mb-6">All Features</h2>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {{ range . }}
-                <li class="flex items-center text-neon-blue">
-                    <span class="text-neon-pink mr-2">→</span>
-                    {{ . }}
-                </li>
-                {{ end }}
-            </ul>
+    <!-- Game Canvas Section -->
+    <div class="relative">
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-arcade-darker via-arcade-darker/50 to-transparent z-10"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="relative aspect-video max-w-6xl mx-auto rounded-lg overflow-hidden bg-arcade-dark border-2 border-arcade-lighter">
+                <!-- Loading Screen -->
+                <div id="loadingScreen" class="absolute inset-0 bg-arcade-darker flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 border-4 border-neon-pink border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                        <p class="font-arcade text-neon-pink animate-pulse">Loading Game...</p>
+                    </div>
+                </div>
+                
+                <!-- Game Canvas -->
+                <canvas id="gameCanvas" class="w-full h-full"></canvas>
+                
+                <!-- Game Controls Overlay -->
+                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <button id="playPauseBtn" class="w-12 h-12 rounded-lg bg-arcade-dark border-2 border-neon-pink/20 flex items-center justify-center group hover:border-neon-pink transition-colors duration-300">
+                                <svg class="w-6 h-6 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <button id="muteBtn" class="w-12 h-12 rounded-lg bg-arcade-dark border-2 border-neon-blue/20 flex items-center justify-center group hover:border-neon-blue transition-colors duration-300">
+                                <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18v-2m0 0l-4-4m4 4l4-4" />
+                                </svg>
+                            </button>
+                        </div>
+                        <button id="fullscreenBtn" class="w-12 h-12 rounded-lg bg-arcade-dark border-2 border-neon-pink/20 flex items-center justify-center group hover:border-neon-pink transition-colors duration-300">
+                            <svg class="w-6 h-6 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{ end }}
     </div>
 </div>
 
-<!-- Other Games Section -->
-{{ partial "games-grid" . }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('gameCanvas');
+    const loadingScreen = document.getElementById('loadingScreen');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    
+    // Set canvas size
+    function resizeCanvas() {
+        const container = canvas.parentElement;
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    
+    // Initialize game if the Game class exists
+    if (typeof Game !== 'undefined') {
+        const game = new Game(canvas);
+        
+        // Simulate loading
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            game.init();
+        }, 2000);
+        
+        // Handle fullscreen
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                canvas.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+        
+        // Handle play/pause
+        playPauseBtn.addEventListener('click', () => {
+            game.togglePause();
+            const icon = playPauseBtn.querySelector('svg');
+            if (game.isPaused) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />';
+            }
+        });
+        
+        // Handle mute
+        muteBtn.addEventListener('click', () => {
+            game.toggleMute();
+            const icon = muteBtn.querySelector('svg');
+            if (game.isMuted) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18v-2m0 0l-4-4m4 4l4-4" />';
+            }
+        });
+        
+        // Handle keyboard controls
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'KeyP') {
+                playPauseBtn.click();
+            } else if (e.code === 'KeyM') {
+                muteBtn.click();
+            } else if (e.code === 'Space' && game.isGameOver) {
+                game.restart();
+            }
+        });
+    } else {
+        // Handle case where game.js is not found
+        loadingScreen.innerHTML = `
+            <div class="text-center">
+                <p class="font-arcade text-neon-pink mb-4">Game Not Found</p>
+                <p class="text-white/70">This game is currently unavailable.</p>
+            </div>
+        `;
+    }
+});
+</script>
 {{ end }}

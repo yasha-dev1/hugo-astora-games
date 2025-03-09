@@ -7,39 +7,30 @@
 {{ end }}
 
 <!-- Games Grid Section -->
-{{ partial "games-grid" . }}
-
-<!-- Upcoming Games Section -->
-<section class="py-24 px-6 md:px-12 bg-arcade-darker relative overflow-hidden">
-    <div class="container mx-auto max-w-7xl">
-        <h2 class="font-arcade text-3xl md:text-4xl mb-16 text-center">
-            Upcoming Releases
-            <div class="h-1 w-24 bg-gradient-to-r from-purple-500 to-neon-pink mx-auto mt-4"></div>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {{ range where .Site.RegularPages "Section" "games" }}
-            {{ if eq .Params.status "In Development" }}
-            <div class="group overflow-hidden rounded-xl bg-arcade-dark border border-arcade-lighter hover:border-neon-pink/50 transition-all duration-300">
-                <div class="aspect-video rounded-lg overflow-hidden mb-4">
-                    {{ if .Params.thumbnail }}
-                        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    {{ end }}
-                </div>
-                <div class="p-6">
-                    <h3 class="font-arcade text-xl mb-2 group-hover:text-neon-pink transition-colors">{{ .Title }}</h3>
-                    <p class="font-arcade text-sm text-white/70 line-clamp-2">{{ .Description }}</p>
-                </div>
-            </div>
-            {{ end }}
-            {{ end }}
-        </div>
+<div class="relative bg-arcade-darker">
+    <!-- Neon Grid Background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.15)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.3)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.3)_1px,transparent_1px)] bg-[size:9rem_9rem]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-arcade-darker/80 via-arcade-darker/60 to-arcade-darker/80"></div>
     </div>
-</section>
+    
+    <div class="relative py-12">
+        {{ partial "games-grid" . }}
+    </div>
+</div>
 
 <!-- Newsletter Section -->
-<section class="py-24 px-6 md:px-12 bg-arcade-darker relative overflow-hidden">
-    <div class="container mx-auto max-w-2xl text-center">
+<div class="relative bg-arcade-darker overflow-hidden">
+    <!-- Neon Grid Background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.15)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.3)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.3)_1px,transparent_1px)] bg-[size:9rem_9rem]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-arcade-darker/80 via-arcade-darker/60 to-arcade-darker/80"></div>
+    </div>
+    
+    <section class="relative py-16 px-6 md:px-12">
+        <div class="container mx-auto max-w-2xl text-center">
         <h2 class="font-arcade text-3xl md:text-4xl mb-6 text-neon-pink animate-neon text-shadow-neon">Stay Updated</h2>
         <p class="font-arcade text-lg mb-8 text-white/80">Subscribe to our newsletter for the latest game updates</p>
         <form class="flex gap-4">

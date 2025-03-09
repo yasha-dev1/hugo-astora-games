@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="min-h-screen bg-arcade-darker pt-32">
+    <div class="container mx-auto px-6">
+        <article class="max-w-4xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12">
+                <h1 class="font-arcade text-4xl text-neon-pink mb-6 animate-neon">{{ .Title }}</h1>
+                <div class="flex items-center gap-6 text-white/50">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                    {{ with .Params.author }}
+                    <span>By {{ . }}</span>
+                    {{ end }}
+                    {{ with .Params.category }}
+                    <span class="px-3 py-1 bg-arcade-dark rounded-full text-neon-blue border border-neon-blue/20">
+                        {{ . }}
+                    </span>
+                    {{ end }}
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            {{ with .Params.thumbnail }}
+            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-96 object-cover rounded-lg mb-12">
+            {{ end }}
+
+            <!-- Article Content -->
+            <div class="prose prose-invert prose-lg max-w-none">
+                {{ .Content }}
+            </div>
+
+            <!-- Tags -->
+            {{ with .Params.tags }}
+            <div class="mt-12 pt-6 border-t border-arcade-lighter">
+                <h3 class="font-arcade text-neon-blue mb-4">Tags</h3>
+                <div class="flex flex-wrap gap-2">
+                    {{ range . }}
+                    <a href="/tags/{{ . | urlize }}" class="px-3 py-1 bg-arcade-dark rounded-full text-white/70 border border-arcade-lighter hover:border-neon-pink hover:text-neon-pink transition-colors">
+                        #{{ . }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+            <!-- Share Buttons -->
+            <div class="mt-12 flex items-center gap-4">
+                <span class="text-white/70">Share:</span>
+                <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&text={{ .Title | urlquery }}" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-neon-blue transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}" target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-neon-blue transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </div>
+</div>
+{{ end }}

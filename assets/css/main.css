@@ -113,9 +113,6 @@
 
   .prose h1, .prose h2, .prose h3, .prose h4 {
     @apply text-neon-pink font-arcade;
-    text-shadow: 0 0 7px var(--color-neon-pink),
-                0 0 10px var(--color-neon-pink),
-                0 0 21px var(--color-neon-pink);
   }
 
   .prose p {

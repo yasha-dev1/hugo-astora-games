@@ -37,11 +37,28 @@ module.exports = {
       },
       animation: {
         'pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float-slow': 'float 20s ease-in-out infinite',
+        'float-medium': 'float 15s ease-in-out infinite',
+        'float-delayed': 'float 18s ease-in-out infinite 2s',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+        'pulse-glow-slow': 'pulseGlow 4s ease-in-out infinite 1s',
+        'pulse-glow-delayed': 'pulseGlow 4s ease-in-out infinite 2s'
       },
       keyframes: {
         pulse: {
           '0%, 100%': { opacity: 0.8 },
           '50%': { opacity: 0.4 }
+        },
+        float: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '25%': { transform: 'translate(5%, 10%)' },
+          '50%': { transform: 'translate(-5%, -5%)' },
+          '75%': { transform: 'translate(-10%, 5%)' }
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+          '50%': { opacity: 0.5, transform: 'scale(1.1)' }
         }
       }
     }

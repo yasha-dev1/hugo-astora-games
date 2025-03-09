@@ -1,20 +1,25 @@
 {{ with .Params }}
-<div class="relative w-full min-h-[80vh] overflow-hidden bg-arcade-darker pt-12">
+<div class="relative w-full min-h-[60vh] overflow-hidden bg-arcade-darker pt-12">
     <!-- Background Effects -->
-    <div class="absolute inset-0">
-        <!-- Purple Gradients -->
-        <div class="absolute inset-0 bg-gradient-radial from-purple-600/20 via-purple-900/30 to-transparent opacity-70"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 overflow-hidden">
+        <!-- Solid Dark Background -->
+        <div class="absolute inset-0 bg-arcade-darker"></div>
         
-        <!-- Blurry Neon Effects -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse delay-700"></div>
+        <!-- Multiple Animated Neon Gradients -->
+        <div class="absolute -left-[20%] top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-neon-pink/50 via-neon-pink/10 to-transparent blur-[80px] animate-pulse-glow mix-blend-screen"></div>
+        <div class="absolute -left-[10%] top-[40%] w-[500px] h-[500px] bg-gradient-radial from-fuchsia-500/40 via-fuchsia-500/5 to-transparent blur-[60px] animate-pulse-glow-slow mix-blend-screen"></div>
+        <div class="absolute left-[5%] top-[30%] w-[400px] h-[400px] bg-gradient-radial from-purple-500/40 via-purple-500/5 to-transparent blur-[70px] animate-pulse-glow-delayed mix-blend-screen"></div>
+        <div class="absolute -left-[5%] top-[60%] w-[450px] h-[450px] bg-gradient-radial from-neon-blue/30 via-neon-blue/5 to-transparent blur-[90px] animate-float-slow mix-blend-screen"></div>
         
-        <!-- Scanline Effect -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"></div>
+        <!-- Additional Glow Effects -->
+        <div class="absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-neon-pink/20 to-transparent mix-blend-screen"></div>
+        <div class="absolute left-[10%] top-0 h-full w-1/4 bg-gradient-to-r from-purple-500/10 to-transparent mix-blend-screen animate-pulse-slow"></div>
         
-        <!-- Grid Pattern -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(147,51,234,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(147,51,234,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.02]"></div>
+        <!-- Dark Overlay for Text Contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/60 to-black/80"></div>
+        
+        <!-- Subtle Scanline Effect -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.15)_50%)] bg-[length:100%_4px] opacity-20"></div>
     </div>
 
     <!-- Main Content -->
@@ -30,10 +35,10 @@
                 </div>
 
                 <!-- Title and Description -->
-                <h1 class="title text-5xl lg:text-7xl mb-6">
+                <h1 class="title text-5xl lg:text-7xl mb-6 font-bold text-white [text-shadow:_0_0_30px_rgb(255_255_255_/_40%),_0_0_10px_rgb(255_255_255_/_40%)] tracking-wide">
                     {{ $.Title }}
                 </h1>
-                <p class="subtitle text-xl max-w-xl mb-12 text-white/80">
+                <p class="subtitle text-xl max-w-xl mb-12 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     {{ .description }}
                 </p>
 
@@ -62,17 +67,6 @@
                                 </span>
                                 {{ end }}
                             </div>
-                        </div>
-                        <div>
-                            <h3 class="text-neon-pink mb-4 font-arcade text-sm">Key Features</h3>
-                            <ul class="space-y-2 text-neon-blue text-sm">
-                                {{ range first 3 .features }}
-                                <li class="flex items-center">
-                                    <span class="mr-2 text-neon-pink">→</span>
-                                    {{ . }}
-                                </li>
-                                {{ end }}
-                            </ul>
                         </div>
                     </div>
                 </div>

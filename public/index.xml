@@ -2,31 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AdTuneAI - AI-Powered Ad Campaign Optimization on My New Hugo Site</title>
-    <link>http://localhost:35273/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content in AdTuneAI - AI-Powered Ad Campaign Optimization on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35273/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Mar 2025 20:55:18 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Need for Speed: Underground</title>
-      <link>http://localhost:35273/games/needforspeed/</link>
+      <title>Contact Us</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Sun, 09 Mar 2025 20:55:18 +0100</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;h2 id=&#34;get-in-touch&#34;&gt;Get in Touch&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;d love to hear from you! Whether you have questions about our games, need technical support, or want to collaborate, we&amp;rsquo;re here to help.&lt;/p&gt;&#xA;&lt;h2 id=&#34;contact-information&#34;&gt;Contact Information&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:support@astoragames.com&#34;&gt;support@astoragames.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Phone:&lt;/strong&gt; +1 (555) 123-4567&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hours:&lt;/strong&gt; Monday - Friday, 9:00 AM - 6:00 PM EST&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;office-location&#34;&gt;Office Location&lt;/h2&gt;&#xA;&lt;p&gt;Astora Games HQ&lt;br&gt;&#xA;123 Game Street&lt;br&gt;&#xA;Silicon Valley, CA 94025&lt;br&gt;&#xA;United States&lt;/p&gt;&#xA;&lt;h2 id=&#34;social-media&#34;&gt;Social Media&lt;/h2&gt;&#xA;&lt;p&gt;Follow us on social media to stay updated with our latest news and releases:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>http://localhost:1313/privacy/</link>
+      <pubDate>Sun, 09 Mar 2025 20:55:18 +0100</pubDate>
+      <guid>http://localhost:1313/privacy/</guid>
+      <description>&lt;p&gt;Last updated: March 9, 2025&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Welcome to Astora Games. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle your information when you use our website and games.&lt;/p&gt;&#xA;&lt;h2 id=&#34;information-we-collect&#34;&gt;Information We Collect&lt;/h2&gt;&#xA;&lt;h3 id=&#34;personal-data&#34;&gt;Personal Data&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Email address (when you contact us or sign up for newsletters)&lt;/li&gt;&#xA;&lt;li&gt;Username and game progress&lt;/li&gt;&#xA;&lt;li&gt;Device information and IP address&lt;/li&gt;&#xA;&lt;li&gt;Gaming preferences and behavior&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;usage-data&#34;&gt;Usage Data&lt;/h3&gt;&#xA;&lt;p&gt;We automatically collect information about how you interact with our games and website, including:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terms of Service</title>
+      <link>http://localhost:1313/terms/</link>
+      <pubDate>Sun, 09 Mar 2025 20:55:18 +0100</pubDate>
+      <guid>http://localhost:1313/terms/</guid>
+      <description>&lt;p&gt;Last updated: March 9, 2025&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-acceptance-of-terms&#34;&gt;1. Acceptance of Terms&lt;/h2&gt;&#xA;&lt;p&gt;By accessing and using Astora Games&amp;rsquo; website and games, you agree to be bound by these Terms of Service and all applicable laws and regulations.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-user-accounts&#34;&gt;2. User Accounts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;21-account-creation&#34;&gt;2.1 Account Creation&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You must provide accurate information when creating an account&lt;/li&gt;&#xA;&lt;li&gt;You are responsible for maintaining the security of your account&lt;/li&gt;&#xA;&lt;li&gt;You must be at least 13 years old to create an account&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;22-account-termination&#34;&gt;2.2 Account Termination&lt;/h3&gt;&#xA;&lt;p&gt;We reserve the right to suspend or terminate accounts that violate these terms.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Welcome to Astora Games</title>
+      <link>http://localhost:1313/blog/welcome-to-astora-games/</link>
+      <pubDate>Sun, 09 Mar 2025 20:55:18 +0100</pubDate>
+      <guid>http://localhost:1313/blog/welcome-to-astora-games/</guid>
+      <description>&lt;p&gt;We&amp;rsquo;re thrilled to officially launch Astora Games, your new destination for retro-inspired browser games with a modern twist. Our mission is to create engaging, accessible games that combine the charm of classic arcade games with contemporary gameplay mechanics.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-vision&#34;&gt;Our Vision&lt;/h2&gt;&#xA;&lt;p&gt;At Astora Games, we believe that great games don&amp;rsquo;t need to be complicated. We focus on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Accessibility&lt;/strong&gt;: All our games run directly in your browser&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Retro Aesthetics&lt;/strong&gt;: Beautiful pixel art and neon-cyberpunk visuals&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Modern Gameplay&lt;/strong&gt;: Classic concepts reimagined with modern game design&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Community Focus&lt;/strong&gt;: Built for and with our gaming community&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;whats-coming&#34;&gt;What&amp;rsquo;s Coming&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;re launching with our first title, Space Shooter, a modern take on the classic arcade shooter. But that&amp;rsquo;s just the beginning! Here&amp;rsquo;s what&amp;rsquo;s in our pipeline:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Space Shooter</title>
+      <link>http://localhost:1313/games/space-shooter/</link>
+      <pubDate>Sun, 09 Mar 2025 20:42:04 +0100</pubDate>
+      <guid>http://localhost:1313/games/space-shooter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Need for Speed</title>
+      <link>http://localhost:1313/games/needforspeed/</link>
       <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35273/games/needforspeed/</guid>
+      <guid>http://localhost:1313/games/needforspeed/</guid>
       <description>&lt;p&gt;Experience the thrill of underground street racing in this legendary arcade racing game. Customize your car with hundreds of performance upgrades and visual modifications, race through neon-lit city streets, and climb the ranks to become the ultimate street racing champion.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pixel Dungeons</title>
-      <link>http://localhost:35273/games/pixel-dungeons/</link>
+      <link>http://localhost:1313/games/pixel-dungeons/</link>
       <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35273/games/pixel-dungeons/</guid>
+      <guid>http://localhost:1313/games/pixel-dungeons/</guid>
       <description>&lt;p&gt;Descend into the depths of procedurally generated dungeons in this challenging roguelike adventure. Each run is unique, with countless items to discover and monsters to defeat.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About Us</title>
-      <link>http://localhost:35273/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35273/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;welcome-to-astora-games&#34;&gt;Welcome to Astora Games&lt;/h1&gt;&#xA;&lt;p&gt;We are a passionate team of game developers and retro gaming enthusiasts dedicated to creating unique arcade experiences that blend classic gameplay with modern innovation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-mission&#34;&gt;Our Mission&lt;/h2&gt;&#xA;&lt;p&gt;At Astora Games, we believe in the timeless appeal of arcade gaming. Our mission is to craft games that capture the essence of the golden age of arcades while incorporating contemporary game design and technology.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-we-do&#34;&gt;What We Do&lt;/h2&gt;&#xA;&lt;p&gt;We specialize in developing games that feature:&lt;/p&gt;</description>
     </item>
   </channel>

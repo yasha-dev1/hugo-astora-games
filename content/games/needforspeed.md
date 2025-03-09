@@ -1,5 +1,5 @@
 ---
-title: "Need for Speed: Underground"
+title: "Need for Speed"
 date: 2025-03-09
 description: "Race through neon-lit streets in this iconic arcade racing game. Customize your ride and become the ultimate street racing champion."
 thumbnail: "/images/games/needforspeed.jpg"

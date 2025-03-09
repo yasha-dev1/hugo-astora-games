@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on My New Hugo Site</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Mar 2025 20:55:18 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to Astora Games</title>
+      <link>http://localhost:1313/blog/welcome-to-astora-games/</link>
+      <pubDate>Sun, 09 Mar 2025 20:55:18 +0100</pubDate>
+      <guid>http://localhost:1313/blog/welcome-to-astora-games/</guid>
+      <description>&lt;p&gt;We&amp;rsquo;re thrilled to officially launch Astora Games, your new destination for retro-inspired browser games with a modern twist. Our mission is to create engaging, accessible games that combine the charm of classic arcade games with contemporary gameplay mechanics.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-vision&#34;&gt;Our Vision&lt;/h2&gt;&#xA;&lt;p&gt;At Astora Games, we believe that great games don&amp;rsquo;t need to be complicated. We focus on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Accessibility&lt;/strong&gt;: All our games run directly in your browser&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Retro Aesthetics&lt;/strong&gt;: Beautiful pixel art and neon-cyberpunk visuals&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Modern Gameplay&lt;/strong&gt;: Classic concepts reimagined with modern game design&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Community Focus&lt;/strong&gt;: Built for and with our gaming community&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;whats-coming&#34;&gt;What&amp;rsquo;s Coming&lt;/h2&gt;&#xA;&lt;p&gt;We&amp;rsquo;re launching with our first title, Space Shooter, a modern take on the classic arcade shooter. But that&amp;rsquo;s just the beginning! Here&amp;rsquo;s what&amp;rsquo;s in our pipeline:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

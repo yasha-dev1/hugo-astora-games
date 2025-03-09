@@ -646,7 +646,6 @@ video {
   font-family: Press Start 2P, cursive;
   --tw-text-opacity: 1;
   color: rgb(255 16 240 / var(--tw-text-opacity, 1));
-    text-shadow: 0 0 7px #FF10F0, 0 0 10px #FF10F0, 0 0 21px #FF10F0;
 }
 .prose p {
   line-height: 1.625;
