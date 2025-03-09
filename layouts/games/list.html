@@ -1,0 +1,88 @@
+{{ define "main" }}
+<div class="min-h-screen bg-arcade-darker relative">
+    <!-- Neon Grid Background for entire page -->
+    <div class="fixed inset-0">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.15)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(236,72,153,0.3)_1px,transparent_1px),linear-gradient(to_bottom,rgba(236,72,153,0.3)_1px,transparent_1px)] bg-[size:9rem_9rem]"></div>
+        
+        <!-- Gradient Blobs -->
+        <div class="absolute left-1/4 top-1/2 w-[500px] h-[500px] bg-gradient-radial from-neon-pink/30 via-neon-pink/5 to-transparent blur-[100px] animate-pulse-glow mix-blend-screen"></div>
+        <div class="absolute right-1/4 top-1/3 w-[400px] h-[400px] bg-gradient-radial from-neon-blue/30 via-neon-blue/5 to-transparent blur-[80px] animate-pulse-glow-delayed mix-blend-screen"></div>
+        <div class="absolute left-1/3 bottom-1/4 w-[600px] h-[600px] bg-gradient-radial from-purple-500/30 via-purple-500/5 to-transparent blur-[120px] animate-pulse-glow-slow mix-blend-screen"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="relative">
+        <!-- Page Header -->
+        <div class="relative py-20 overflow-hidden">
+            <div class="container mx-auto px-6 relative">
+                <h1 class="font-arcade text-4xl md:text-6xl text-center mb-6 text-neon-pink animate-neon text-shadow-neon">
+                    Our Games
+                </h1>
+                <p class="text-white/70 text-center max-w-2xl mx-auto text-lg">
+                    Explore our collection of retro-inspired arcade games, each with a unique cyberpunk twist.
+                </p>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="container mx-auto px-6 pb-24">
+            <!-- Filters -->
+            <div class="mb-12 flex flex-wrap gap-4 justify-center">
+                <button class="px-6 py-2 rounded-lg bg-arcade-dark/80 backdrop-blur-sm border-2 border-neon-pink/20 text-neon-pink hover:border-neon-pink/50 transition-colors font-arcade">
+                    All Games
+                </button>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ range where .Site.RegularPages "Section" "games" }}
+                <article class="group">
+                    <a href="{{ .RelPermalink }}" class="block">
+                        <div class="relative aspect-[4/3] mb-4 overflow-hidden rounded-lg bg-arcade-dark/80 backdrop-blur-sm border-2 border-arcade-lighter group-hover:border-neon-pink/50 transition-all duration-300">
+                            {{ if .Params.thumbnail }}
+                            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            {{ end }}
+                            
+                            <!-- Game Status -->
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 text-xs font-arcade rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/50">
+                                    {{ .Params.status }}
+                                </span>
+                            </div>
+                            
+                            <!-- Hover Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                <div class="p-6">
+                                    <p class="font-arcade text-neon-pink text-lg mb-2">Play Now</p>
+                                    <p class="text-white/70">Experience the thrill of {{ .Title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h2 class="font-arcade text-2xl mb-2 text-neon-blue group-hover:text-neon-blue-light transition-colors">
+                            {{ .Title }}
+                        </h2>
+                        <p class="text-white/70 text-sm mb-4 line-clamp-2">{{ .Params.description }}</p>
+                        
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2">
+                            {{ range .Params.genre }}
+                            <span class="px-2 py-1 text-xs rounded bg-arcade-dark/80 backdrop-blur-sm text-neon-pink border border-neon-pink/20">
+                                {{ . }}
+                            </span>
+                            {{ end }}
+                            {{ range .Params.platforms }}
+                            <span class="px-2 py-1 text-xs rounded bg-arcade-dark/80 backdrop-blur-sm text-neon-blue border border-neon-blue/20">
+                                {{ . }}
+                            </span>
+                            {{ end }}
+                        </div>
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

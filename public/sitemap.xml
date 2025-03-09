@@ -2,53 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:36471/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/tags/company/</loc>
+    <loc>http://localhost:1313/tags/company/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/contact/</loc>
+    <loc>http://localhost:1313/contact/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/tags/news/</loc>
+    <loc>http://localhost:1313/tags/news/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/privacy/</loc>
+    <loc>http://localhost:1313/privacy/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/terms/</loc>
+    <loc>http://localhost:1313/terms/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/tags/updates/</loc>
+    <loc>http://localhost:1313/tags/updates/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/blog/welcome-to-astora-games/</loc>
+    <loc>http://localhost:1313/blog/welcome-to-astora-games/</loc>
     <lastmod>2025-03-09T20:55:18+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/games/</loc>
+    <loc>http://localhost:1313/games/</loc>
+    <lastmod>2025-03-09T20:42:04+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/games/space-shooter/</loc>
+    <lastmod>2025-03-09T20:42:04+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/games/needforspeed/</loc>
     <lastmod>2025-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/games/needforspeed/</loc>
-    <lastmod>2025-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:36471/games/pixel-dungeons/</loc>
+    <loc>http://localhost:1313/games/pixel-dungeons/</loc>
     <lastmod>2025-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:36471/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>http://localhost:36471/tags/behind-the-scenes/</loc>
-  </url><url>
-    <loc>http://localhost:36471/categories/</loc>
-  </url><url>
-    <loc>http://localhost:36471/tags/game-dev/</loc>
-  </url><url>
-    <loc>http://localhost:36471/tags/space-shooter/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

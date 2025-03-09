@@ -121,10 +121,7 @@
     </div>
 
     
-    <div class="relative">
-        
-        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-arcade-darker via-arcade-darker/50 to-transparent z-10"></div>
-        
+    <div class="relative">        
         <div class="container mx-auto px-6">
             <div class="relative aspect-video max-w-6xl mx-auto rounded-lg overflow-hidden bg-arcade-dark border-2 border-arcade-lighter">
                 
@@ -136,7 +133,7 @@
                 </div>
                 
                 
-                <canvas id="gameCanvas" class="w-full h-full"></canvas>
+                <canvas id="gameCanvas" class="w-full h-full" tabindex="0"></canvas>
                 
                 
                 <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
@@ -175,6 +172,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     
     
+    canvas.focus();
+
+    
+    window.addEventListener('keydown', function(e) {
+        if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+            e.preventDefault();
+        }
+    });
+
+    
     function resizeCanvas() {
         const container = canvas.parentElement;
         canvas.width = container.clientWidth;
@@ -192,6 +199,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             loadingScreen.style.display = 'none';
             game.init();
+            
+            canvas.focus();
         }, 2000);
         
         
@@ -203,6 +212,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 document.exitFullscreen();
             }
+            
+            canvas.focus();
         });
         
         
@@ -214,6 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />';
             }
+            
+            canvas.focus();
         });
         
         
@@ -225,10 +238,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18v-2m0 0l-4-4m4 4l4-4" />';
             }
+            
+            canvas.focus();
         });
         
         
-        window.addEventListener('keydown', (e) => {
+        canvas.addEventListener('keydown', (e) => {
             if (e.code === 'KeyP') {
                 playPauseBtn.click();
             } else if (e.code === 'KeyM') {
@@ -236,6 +251,15 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (e.code === 'Space' && game.isGameOver) {
                 game.restart();
             }
+            
+            if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+                e.preventDefault();
+            }
+        });
+
+        
+        canvas.parentElement.addEventListener('click', () => {
+            canvas.focus();
         });
     } else {
         
