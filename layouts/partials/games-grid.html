@@ -1,0 +1,54 @@
+{{ $games := where .Site.RegularPages "Section" "games" }}
+<section class="py-24 px-6 md:px-12 bg-arcade-darker relative overflow-hidden">
+    <!-- Neon Grid Background -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#FF10F0_1px,transparent_1px),linear-gradient(to_bottom,#FF10F0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.03]"></div>
+
+    <div class="container mx-auto max-w-7xl relative">
+        <h2 class="title text-3xl md:text-4xl mb-16 text-center">
+            All Games
+            <div class="h-1 w-24 bg-gradient-to-r from-purple-500 to-neon-pink mx-auto mt-4"></div>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ range $games }}
+            <article class="card group hover:transform hover:scale-[1.02] transition-all duration-300">
+                <!-- Game Image -->
+                <div class="relative aspect-video mb-4 overflow-hidden rounded-lg">
+                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover">
+                    <!-- Status Badge -->
+                    <div class="absolute top-3 right-3">
+                        <span class="px-3 py-1 text-xs font-arcade rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/50">
+                            {{ .Params.status }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Game Info -->
+                <h3 class="font-arcade text-neon-blue text-xl mb-2 group-hover:text-neon-blue-light transition-colors">
+                    {{ .Title }}
+                </h3>
+                <p class="text-white/70 text-sm mb-4 line-clamp-2">{{ .Params.description }}</p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {{ range first 2 .Params.genre }}
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                        {{ . }}
+                    </span>
+                    {{ end }}
+                    {{ range first 2 .Params.platforms }}
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                        {{ . }}
+                    </span>
+                    {{ end }}
+                </div>
+
+                <!-- Learn More Button -->
+                <a href="{{ .RelPermalink }}" class="btn btn-secondary w-full text-center">
+                    Learn More
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>

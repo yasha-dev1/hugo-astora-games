@@ -1,2 +1,2 @@
-# hugo-astora-games
-Games
+# adtuneai-hugo-theme
+A Hugo Theme for AdTuneAI

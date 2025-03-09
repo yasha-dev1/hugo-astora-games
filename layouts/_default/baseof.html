@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{ $css := resources.Get "css/main.css" | css.PostCSS }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    <style>
+        @keyframes neonPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .animate-neon {
+            animation: neonPulse 2s infinite;
+        }
+        .text-shadow-neon {
+            text-shadow: 0 0 10px rgba(255, 16, 240, 0.5),
+                       0 0 20px rgba(255, 16, 240, 0.3),
+                       0 0 30px rgba(255, 16, 240, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-arcade-darker text-white font-arcade min-h-screen flex flex-col">
+    {{ partial "header" . }}
+    <main class="flex-grow pt-16">
+        {{ block "main" . }}{{ end }}
+    </main>
+</body>
+</html>

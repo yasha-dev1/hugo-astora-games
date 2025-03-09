@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=37091&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Dungeons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        @keyframes neonPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .animate-neon {
+            animation: neonPulse 2s infinite;
+        }
+        .text-shadow-neon {
+            text-shadow: 0 0 10px rgba(255, 16, 240, 0.5),
+                       0 0 20px rgba(255, 16, 240, 0.3),
+                       0 0 30px rgba(255, 16, 240, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-arcade-darker text-white font-arcade min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-arcade-darker/80 backdrop-blur-lg border-b border-arcade-lighter">
+    <div class="container mx-auto px-6 h-16">
+        <nav class="flex items-center justify-between h-full">
+            
+            <a href="/" class="font-arcade text-2xl text-neon-pink hover:text-neon-pink-light transition-colors">
+                AstoraGames
+            </a>
+
+            
+            <ul class="flex items-center space-x-8">
+                <li>
+                    <a href="/games" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        Store
+                    </a>
+                </li>
+                <li>
+                    <a href="/games" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        Games
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class="font-arcade text-white hover:text-neon-blue transition-colors">
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main class="flex-grow pt-16">
+        
+
+
+<div class="relative w-full min-h-[80vh] overflow-hidden bg-arcade-darker pt-12">
+    
+    <div class="absolute inset-0">
+        
+        <div class="absolute inset-0 bg-gradient-radial from-purple-600/20 via-purple-900/30 to-transparent opacity-70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent"></div>
+        
+        
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse delay-700"></div>
+        
+        
+        <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"></div>
+        
+        
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(147,51,234,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(147,51,234,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.02]"></div>
+    </div>
+
+    
+    <div class="container relative z-10 mx-auto h-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center">
+            
+            <div class="pt-20 lg:pt-0">
+                
+                <div class="mb-8">
+                    <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-arcade bg-neon-pink/20 text-neon-pink border border-neon-pink/50 backdrop-blur-sm">
+                        Released
+                    </span>
+                </div>
+
+                
+                <h1 class="title text-5xl lg:text-7xl mb-6">
+                    Pixel Dungeons
+                </h1>
+                <p class="subtitle text-xl max-w-xl mb-12 text-white/80">
+                    Retro-style roguelike dungeon crawler
+                </p>
+
+                
+                <div class="space-y-8">
+                    
+                    <div>
+                        <h3 class="text-neon-pink mb-4 font-arcade text-sm">Platforms</h3>
+                        <div class="flex flex-wrap gap-2">
+                            
+                            <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-blue/20 text-neon-blue text-sm">
+                                PC
+                            </span>
+                            
+                            <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-blue/20 text-neon-blue text-sm">
+                                Nintendo Switch
+                            </span>
+                            
+                            <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-blue/20 text-neon-blue text-sm">
+                                Mobile
+                            </span>
+                            
+                        </div>
+                    </div>
+
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-neon-pink mb-4 font-arcade text-sm">Genre</h3>
+                            <div class="flex flex-wrap gap-2">
+                                
+                                <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-pink/20 text-neon-pink text-sm">
+                                    Roguelike
+                                </span>
+                                
+                                <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-pink/20 text-neon-pink text-sm">
+                                    RPG
+                                </span>
+                                
+                                <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-pink/20 text-neon-pink text-sm">
+                                    Pixel Art
+                                </span>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-neon-pink mb-4 font-arcade text-sm">Key Features</h3>
+                            <ul class="space-y-2 text-neon-blue text-sm">
+                                
+                                <li class="flex items-center">
+                                    <span class="mr-2 text-neon-pink">→</span>
+                                    Procedurally generated dungeons
+                                </li>
+                                
+                                <li class="flex items-center">
+                                    <span class="mr-2 text-neon-pink">→</span>
+                                    Unique pixel art style
+                                </li>
+                                
+                                <li class="flex items-center">
+                                    <span class="mr-2 text-neon-pink">→</span>
+                                    100&#43; items and weapons
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="relative h-full hidden lg:block">
+                
+                <div class="absolute inset-y-0 left-0 w-[800px]">
+                    
+                    <img src="/images/games/pixel-dungeons.jpg" alt="Pixel Dungeons" class="h-full w-full object-cover rounded-l-3xl">
+                    
+                    
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-r from-arcade-darker via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-t from-arcade-darker via-transparent to-transparent"></div>
+                    
+                    
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container py-16">
+    <div class="prose prose-invert max-w-none">
+        
+        <div class="card mb-12 backdrop-blur-sm bg-arcade-dark/80">
+            <p>Descend into the depths of procedurally generated dungeons in this challenging roguelike adventure. Each run is unique, with countless items to discover and monsters to defeat.</p>
+
+        </div>
+
+        
+        
+        <div class="card backdrop-blur-sm bg-arcade-dark/80">
+            <h2 class="title text-2xl mb-6">All Features</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <li class="flex items-center text-neon-blue">
+                    <span class="text-neon-pink mr-2">→</span>
+                    Procedurally generated dungeons
+                </li>
+                
+                <li class="flex items-center text-neon-blue">
+                    <span class="text-neon-pink mr-2">→</span>
+                    Unique pixel art style
+                </li>
+                
+                <li class="flex items-center text-neon-blue">
+                    <span class="text-neon-pink mr-2">→</span>
+                    100&#43; items and weapons
+                </li>
+                
+                <li class="flex items-center text-neon-blue">
+                    <span class="text-neon-pink mr-2">→</span>
+                    Challenging boss battles
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<section class="py-24 px-6 md:px-12 bg-arcade-darker relative overflow-hidden">
+    
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#FF10F0_1px,transparent_1px),linear-gradient(to_bottom,#FF10F0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.03]"></div>
+
+    <div class="container mx-auto max-w-7xl relative">
+        <h2 class="title text-3xl md:text-4xl mb-16 text-center">
+            All Games
+            <div class="h-1 w-24 bg-gradient-to-r from-purple-500 to-neon-pink mx-auto mt-4"></div>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <article class="card group hover:transform hover:scale-[1.02] transition-all duration-300">
+                
+                <div class="relative aspect-video mb-4 overflow-hidden rounded-lg">
+                    <img src="/images/games/needforspeed.jpg" alt="Need for Speed: Underground" class="w-full h-full object-cover">
+                    
+                    <div class="absolute top-3 right-3">
+                        <span class="px-3 py-1 text-xs font-arcade rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/50">
+                            Released
+                        </span>
+                    </div>
+                </div>
+
+                
+                <h3 class="font-arcade text-neon-blue text-xl mb-2 group-hover:text-neon-blue-light transition-colors">
+                    Need for Speed: Underground
+                </h3>
+                <p class="text-white/70 text-sm mb-4 line-clamp-2">Race through neon-lit streets in this iconic arcade racing game. Customize your ride and become the ultimate street racing champion.</p>
+
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                        Racing
+                    </span>
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                        Arcade
+                    </span>
+                    
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                        PC
+                    </span>
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                        PS2
+                    </span>
+                    
+                </div>
+
+                
+                <a href="/games/needforspeed/" class="btn btn-secondary w-full text-center">
+                    Learn More
+                </a>
+            </article>
+            
+            <article class="card group hover:transform hover:scale-[1.02] transition-all duration-300">
+                
+                <div class="relative aspect-video mb-4 overflow-hidden rounded-lg">
+                    <img src="/images/games/pixel-dungeons.jpg" alt="Pixel Dungeons" class="w-full h-full object-cover">
+                    
+                    <div class="absolute top-3 right-3">
+                        <span class="px-3 py-1 text-xs font-arcade rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/50">
+                            Released
+                        </span>
+                    </div>
+                </div>
+
+                
+                <h3 class="font-arcade text-neon-blue text-xl mb-2 group-hover:text-neon-blue-light transition-colors">
+                    Pixel Dungeons
+                </h3>
+                <p class="text-white/70 text-sm mb-4 line-clamp-2">Retro-style roguelike dungeon crawler</p>
+
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                        Roguelike
+                    </span>
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-pink border border-neon-pink/20">
+                        RPG
+                    </span>
+                    
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                        PC
+                    </span>
+                    
+                    <span class="px-2 py-1 text-xs rounded bg-arcade-dark text-neon-blue border border-neon-blue/20">
+                        Nintendo Switch
+                    </span>
+                    
+                </div>
+
+                
+                <a href="/games/pixel-dungeons/" class="btn btn-secondary w-full text-center">
+                    Learn More
+                </a>
+            </article>
+            
+        </div>
+    </div>
+</section>
+
+
+    </main>
+</body>
+</html>

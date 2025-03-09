@@ -1,0 +1,12 @@
+name = "Astora Games"
+license = "MIT"
+licenselink = "https://github.com/yourusername/astoragames-hugo-theme/blob/master/LICENSE"
+description = "A modern Hugo theme for Astora Games"
+homepage = "http://example.com/"
+tags = ["company", "landing", "modern", "responsive"]
+features = ["responsive", "tailwind"]
+min_version = "0.41.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://example.com"

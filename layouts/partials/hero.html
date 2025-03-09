@@ -1,0 +1,99 @@
+{{ with .Params }}
+<div class="relative w-full min-h-[80vh] overflow-hidden bg-arcade-darker pt-12">
+    <!-- Background Effects -->
+    <div class="absolute inset-0">
+        <!-- Purple Gradients -->
+        <div class="absolute inset-0 bg-gradient-radial from-purple-600/20 via-purple-900/30 to-transparent opacity-70"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent"></div>
+        
+        <!-- Blurry Neon Effects -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse delay-700"></div>
+        
+        <!-- Scanline Effect -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] opacity-20"></div>
+        
+        <!-- Grid Pattern -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(147,51,234,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(147,51,234,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.02]"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container relative z-10 mx-auto h-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center">
+            <!-- Left Content -->
+            <div class="pt-20 lg:pt-0">
+                <!-- Game Status Badge -->
+                <div class="mb-8">
+                    <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-arcade bg-neon-pink/20 text-neon-pink border border-neon-pink/50 backdrop-blur-sm">
+                        {{ .status }}
+                    </span>
+                </div>
+
+                <!-- Title and Description -->
+                <h1 class="title text-5xl lg:text-7xl mb-6">
+                    {{ $.Title }}
+                </h1>
+                <p class="subtitle text-xl max-w-xl mb-12 text-white/80">
+                    {{ .description }}
+                </p>
+
+                <!-- Game Details -->
+                <div class="space-y-8">
+                    <!-- Platforms -->
+                    <div>
+                        <h3 class="text-neon-pink mb-4 font-arcade text-sm">Platforms</h3>
+                        <div class="flex flex-wrap gap-2">
+                            {{ range .platforms }}
+                            <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-blue/20 text-neon-blue text-sm">
+                                {{ . }}
+                            </span>
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    <!-- Genre & Features -->
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-neon-pink mb-4 font-arcade text-sm">Genre</h3>
+                            <div class="flex flex-wrap gap-2">
+                                {{ range .genre }}
+                                <span class="px-3 py-1 rounded-lg bg-arcade-dark border border-neon-pink/20 text-neon-pink text-sm">
+                                    {{ . }}
+                                </span>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-neon-pink mb-4 font-arcade text-sm">Key Features</h3>
+                            <ul class="space-y-2 text-neon-blue text-sm">
+                                {{ range first 3 .features }}
+                                <li class="flex items-center">
+                                    <span class="mr-2 text-neon-pink">→</span>
+                                    {{ . }}
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="relative h-full hidden lg:block">
+                <!-- Image Container -->
+                <div class="absolute inset-y-0 left-0 w-[800px]">
+                    <!-- Base Image -->
+                    <img src="{{ .thumbnail }}" alt="{{ $.Title }}" class="h-full w-full object-cover rounded-l-3xl">
+                    
+                    <!-- Image Overlay Effects -->
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-r from-arcade-darker via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-t from-arcade-darker via-transparent to-transparent"></div>
+                    
+                    <!-- Shine Effect -->
+                    <div class="absolute inset-0 rounded-l-3xl bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

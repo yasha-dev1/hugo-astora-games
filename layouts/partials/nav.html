@@ -1,0 +1,62 @@
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg border-b border-gray-800/50">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="/" class="text-2xl font-bold text-white">AdTuneAI</a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                {{ $currentPage := . }}
+                <a href="/" class="{{ if .IsHome }}text-blue-400 font-medium border-b-2 border-blue-400 pb-1{{ else }}text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300 pb-1{{ end }} transition-all">Home</a>
+                
+                <!-- Features Dropdown -->
+                <div class="relative group">
+                    <button class="{{ if hasPrefix .RelPermalink "/features" }}text-blue-400 font-medium border-b-2 border-blue-400 pb-1{{ else }}text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300 pb-1{{ end }} flex items-center transition-all">
+                        Features
+                        <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div class="absolute left-0 mt-2 w-[600px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                        <div class="bg-gray-900/95 backdrop-blur-xl rounded-xl border border-gray-800/50 p-4 shadow-2xl flex gap-6">
+                            <div class="flex-1">
+                                <a href="/features/google-ads" class="block p-3 rounded-lg hover:bg-blue-500/10 transition-colors {{ if eq .RelPermalink "/features/google-ads/" }}bg-blue-500/10{{ end }}">
+                                    <h4 class="text-white font-semibold mb-1">Google Ads</h4>
+                                    <p class="text-sm text-gray-400">Optimize your Google Ads campaigns with AI</p>
+                                </a>
+                                <a href="/features/ads-ai-agent" class="block p-3 rounded-lg hover:bg-blue-500/10 transition-colors {{ if eq .RelPermalink "/features/ads-ai-agent/" }}bg-blue-500/10{{ end }}">
+                                    <h4 class="text-white font-semibold mb-1">Ads AI Agent</h4>
+                                    <p class="text-sm text-gray-400">Let AI manage your campaigns 24/7</p>
+                                </a>
+                                <a href="/features/agency-ads-ai" class="block p-3 rounded-lg hover:bg-blue-500/10 transition-colors {{ if eq .RelPermalink "/features/agency-ads-ai/" }}bg-blue-500/10{{ end }}">
+                                    <h4 class="text-white font-semibold mb-1">Agency Ads AI</h4>
+                                    <p class="text-sm text-gray-400">Scale your agency with AI-powered tools</p>
+                                </a>
+                            </div>
+                            
+                            <!-- Preview Image -->
+                            <div class="w-64 h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                                <span class="text-gray-500">Feature Preview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/pricing" class="{{ if eq .RelPermalink "/pricing/" }}text-blue-400 font-medium border-b-2 border-blue-400 pb-1{{ else }}text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300 pb-1{{ end }} transition-all">Pricing</a>
+                <a href="/blog" class="{{ if hasPrefix .RelPermalink "/blog" }}text-blue-400 font-medium border-b-2 border-blue-400 pb-1{{ else }}text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300 pb-1{{ end }} transition-all">Blog</a>
+                <a href="/about" class="{{ if eq .RelPermalink "/about/" }}text-blue-400 font-medium border-b-2 border-blue-400 pb-1{{ else }}text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300 pb-1{{ end }} transition-all">About</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="flex items-center space-x-4">
+                <a href="/login" class="text-gray-300 hover:text-white transition-colors">Login</a>
+                <a href="/get-started" class="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold hover:from-blue-600 hover:to-blue-800 transition-all duration-200 shadow-lg shadow-blue-500/25">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

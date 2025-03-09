@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-neon-pink: #FF10F0;
+    --color-neon-blue: #4DEEEA;
+    --color-arcade-dark: #0A0A0F;
+    --color-arcade-darker: #050508;
+  }
+
+  body {
+    background-color: var(--color-arcade-darker);
+    color: white;
+  }
+
+  .font-arcade {
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 0.05em;
+  }
+
+  .font-cyber {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-neon-blue transition-colors duration-300;
+  }
+
+  .nav-link:hover {
+    @apply text-neon-blue-light;
+  }
+
+  .nav-link.active {
+    @apply text-neon-pink;
+  }
+
+  .title {
+    @apply font-arcade text-neon-pink;
+    text-shadow: 0 0 7px var(--color-neon-pink),
+                0 0 10px var(--color-neon-pink),
+                0 0 21px var(--color-neon-pink);
+  }
+
+  .subtitle {
+    @apply font-cyber text-neon-blue;
+    text-shadow: 0 0 7px var(--color-neon-blue),
+                0 0 10px var(--color-neon-blue),
+                0 0 21px var(--color-neon-blue);
+  }
+
+  .card {
+    @apply bg-arcade-dark border border-neon-blue/20 rounded-xl p-6 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply border-neon-blue;
+    box-shadow: 0 0 5px var(--color-neon-blue),
+                0 0 20px var(--color-neon-blue);
+  }
+
+  .btn {
+    @apply px-6 py-2 rounded-lg font-arcade text-sm transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-neon-pink/20 text-neon-pink border-2 border-neon-pink/50;
+  }
+
+  .btn-primary:hover {
+    @apply bg-neon-pink/30;
+    box-shadow: 0 0 5px var(--color-neon-pink),
+                0 0 20px var(--color-neon-pink);
+  }
+
+  .btn-secondary {
+    @apply bg-neon-blue/20 text-neon-blue border-2 border-neon-blue/50;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-neon-blue/30;
+    box-shadow: 0 0 5px var(--color-neon-blue),
+                0 0 20px var(--color-neon-blue);
+  }
+
+  /* Hero Section */
+  .hero-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(5, 5, 8, 0.5);
+    background: linear-gradient(to top, #050508 0%, rgba(5,5,8,0.8) 50%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Prose Styling */
+  .prose {
+    @apply text-white max-w-none;
+  }
+
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply text-neon-pink font-arcade;
+    text-shadow: 0 0 7px var(--color-neon-pink),
+                0 0 10px var(--color-neon-pink),
+                0 0 21px var(--color-neon-pink);
+  }
+
+  .prose p {
+    @apply text-white/90 leading-relaxed font-cyber;
+  }
+
+  .prose a {
+    @apply text-neon-blue transition-colors duration-150;
+    text-shadow: 0 0 5px var(--color-neon-blue);
+  }
+
+  .prose a:hover {
+    @apply text-neon-blue-light;
+  }
+
+  .prose ul {
+    @apply space-y-2;
+  }
+
+  .prose ul li {
+    @apply text-white/90 font-cyber;
+  }
+
+  .prose ul li::before {
+    @apply text-neon-pink;
+  }
+}

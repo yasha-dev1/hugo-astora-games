@@ -1,0 +1,32 @@
+{{ define "main" }}
+<!-- Hero Section -->
+{{ partial "hero" . }}
+
+<!-- Game Content -->
+<div class="container py-16">
+    <div class="prose prose-invert max-w-none">
+        <!-- Game Description -->
+        <div class="card mb-12 backdrop-blur-sm bg-arcade-dark/80">
+            {{ .Content }}
+        </div>
+
+        <!-- Features List -->
+        {{ with .Params.features }}
+        <div class="card backdrop-blur-sm bg-arcade-dark/80">
+            <h2 class="title text-2xl mb-6">All Features</h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {{ range . }}
+                <li class="flex items-center text-neon-blue">
+                    <span class="text-neon-pink mr-2">→</span>
+                    {{ . }}
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<!-- Other Games Section -->
+{{ partial "games-grid" . }}
+{{ end }}
