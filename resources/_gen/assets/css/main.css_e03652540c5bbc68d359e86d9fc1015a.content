@@ -1278,6 +1278,9 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 16 240 / var(--tw-text-opacity, 1));
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .fixed {
   position: fixed;
 }
@@ -1428,6 +1431,9 @@ video {
 .ml-2 {
   margin-left: 0.5rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -1550,6 +1556,9 @@ video {
 }
 .w-8 {
   width: 2rem;
+}
+.w-\[30vw\] {
+  width: 30vw;
 }
 .w-\[350px\] {
   width: 350px;
@@ -2265,12 +2274,6 @@ video {
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
 }
-.placeholder-white\/40::-moz-placeholder {
-  color: rgb(255 255 255 / 0.4);
-}
-.placeholder-white\/40::placeholder {
-  color: rgb(255 255 255 / 0.4);
-}
 .opacity-0 {
   opacity: 0;
 }
@@ -2382,9 +2385,6 @@ video {
 .hover\:bg-neon-pink:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 16 240 / var(--tw-bg-opacity, 1));
-}
-.hover\:bg-neon-pink\/30:hover {
-  background-color: rgb(255 16 240 / 0.3);
 }
 .hover\:text-arcade-darker:hover {
   --tw-text-opacity: 1;
