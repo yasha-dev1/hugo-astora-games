@@ -1,0 +1,2 @@
+# hugo-astora-games
+Games
