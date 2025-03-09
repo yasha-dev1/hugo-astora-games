@@ -1,3 +1,3 @@
 ---
-title: "AdTuneAI - AI-Powered Ad Campaign Optimization"
+title: "Astora Games - AI Generated Mini Games"
 ---
