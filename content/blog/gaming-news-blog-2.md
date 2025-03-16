@@ -5,7 +5,7 @@ draft: false
 author: "Arshia Kahani"
 category: "weekly gaming news"
 tags: ["news", "updates", "gaming"]
-thumbnail: "/images/blogs/oblivioin.jpeg"
+thumbnail: "/images/blogs/oblivioin.jpg"
 description: "March 14 2025 Gaming news."
 ---
 Bethesda's Oblivion Remake Coming Sooner Than Expected
