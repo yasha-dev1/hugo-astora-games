@@ -1,16 +1,13 @@
-NEW BETHESDA REMAKE IN UNREAL ENGINE 5, DINO CRISIS RESURFACES? & MORE
-2025-03-16 12:30:00 +0100
-false
-Jake Baldino
-Gaming News
-video games
-bethesda
-oblivion
-space marine
-silent hill
-/images/blogs/gaming-news-march-16.jpg
-Bethesda's Oblivion remake might be dropping soon, Space Marine 3 confirmed, Silent Hill F details revealed, and more exciting gaming news from this week.
-
+---
+title: "NEW BETHESDA REMAKE IN UNREAL ENGINE 5, DINO CRISIS RESURFACES? & MORE"
+date: 2025-03-09T20:55:18+01:00
+draft: false
+author: "Arshia Kahani"
+category: "weekly gaming news"
+tags: ["news", "updates", "gaming"]
+thumbnail: "(https://assets.grok.com/anon-users/023dbe1a-f53b-42d6-8e85-1575a68f7255/jjdHuo0Q13eIRbPC-generated_image.jpg)"
+description: "March 14 2025 Gaming news."
+---
 Bethesda's Oblivion Remake Coming Sooner Than Expected
 According to reliable industry insiders, The Elder Scrolls IV: Oblivion remake in Unreal Engine 5 might be dropping very soon. This long-rumored project has reportedly been in development not by Bethesda's internal team, but by support studio Cervos.
 
