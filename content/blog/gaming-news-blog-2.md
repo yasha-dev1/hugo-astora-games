@@ -79,3 +79,4 @@ In an interesting piece of gaming-related movie trivia, Seth Rogen recently reve
 ## Source  
 
 This blog post summarizes information from Jake Baldino's gaming news roundup video from March 14, 2025. For more detailed coverage and video links to all the trailers mentioned, check out the original video where Jake provides his personal insights and additional context on these stories.  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nvMxb-Ubb2U?si=oXiaLKFPmK5xt5GA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
