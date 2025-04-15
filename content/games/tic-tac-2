@@ -1,14 +1,14 @@
 
 ---
 title: "tic-tac-2"
-description: "A classic sliding tile puzzle game. Combine numbers to reach the elusive 2048 tile and achieve the highest score!"
-thumbnail: "/images/games/2048.jpg"
+description: "test"
+thumbnail: ""
 date: 2025-03-09T20:42:04+01:00
 draft: false
 genre: ["Puzzle", "Strategy"]
 status: "Live"
-active_users: "10M"
-difficulty: "Medium"
+active_users: "1B"
+difficulty: "Ultra Hard"
 controls:
   - key: "←→↑↓"
     action: "Move Tiles"
