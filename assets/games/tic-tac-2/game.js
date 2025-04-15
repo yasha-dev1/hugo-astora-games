@@ -2,190 +2,257 @@ class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.width = canvas.width;
-        this.height = canvas.height;
-        
-        // Game objects
-        this.player = {
-            x: this.width / 2,
-            y: this.height - 50,
-            width: 40,
-            height: 30,
-            speed: 5
-        };
-        
-        this.bullets = [];
-        this.enemies = [];
+        this.tileSize = 20;
+        this.gridWidth = Math.floor(canvas.width / this.tileSize);
+        this.gridHeight = Math.floor(canvas.height / this.tileSize);
         this.score = 0;
         this.isGameOver = false;
-        this.enemySpawnInterval = 1000; // Spawn enemy every 1 second
-        this.lastEnemySpawn = 0;
         
+        // Pac-Man properties
+        this.pacman = {
+            x: this.tileSize * 1,
+            y: this.tileSize * 1,
+            direction: 'right',
+            speed: 2,
+            mouthOpen: 0,
+            mouthSpeed: 0.15
+        };
+
+        // Ghost properties
+        this.ghosts = [
+            { x: this.tileSize * 10, y: this.tileSize * 10, color: 'red', direction: 'right' },
+            { x: this.tileSize * 8, y: this.tileSize * 8, color: 'pink', direction: 'left' },
+            { x: this.tileSize * 12, y: this.tileSize * 12, color: 'cyan', direction: 'up' }
+        ];
+
+        // Create dots grid
+        this.dots = [];
+        this.initializeDots();
+
         // Bind event handlers
         this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.handleKeyUp = this.handleKeyUp.bind(this);
-        
-        // Key states
-        this.keys = {
-            ArrowLeft: false,
-            ArrowRight: false,
-            Space: false
-        };
-        
-        // Event listeners
         window.addEventListener('keydown', this.handleKeyDown);
-        window.addEventListener('keyup', this.handleKeyUp);
+
+        // Start game loop
+        this.gameLoop = this.gameLoop.bind(this);
+        this.lastTime = 0;
+        requestAnimationFrame(this.gameLoop);
     }
 
-    init() {
-        this.gameLoop();
+    initializeDots() {
+        for (let y = 0; y < this.gridHeight; y++) {
+            for (let x = 0; x < this.gridWidth; x++) {
+                if (x % 2 === 0 && y % 2 === 0) {
+                    this.dots.push({ x: x * this.tileSize, y: y * this.tileSize });
+                }
+            }
+        }
     }
 
     handleKeyDown(e) {
-        if (e.code === 'ArrowLeft') this.keys.ArrowLeft = true;
-        if (e.code === 'ArrowRight') this.keys.ArrowRight = true;
-        if (e.code === 'Space') {
-            this.keys.Space = true;
-            this.shoot();
-        }
-        if (e.code === 'Enter' && this.isGameOver) {
-            this.resetGame();
-        }
-    }
-
-    handleKeyUp(e) {
-        if (e.code === 'ArrowLeft') this.keys.ArrowLeft = false;
-        if (e.code === 'ArrowRight') this.keys.ArrowRight = false;
-        if (e.code === 'Space') this.keys.Space = false;
-    }
-
-    shoot() {
-        if (!this.isGameOver) {
-            this.bullets.push({
-                x: this.player.x + this.player.width / 2 - 2,
-                y: this.player.y,
-                width: 4,
-                height: 10,
-                speed: 7
-            });
-        }
-    }
-
-    spawnEnemy() {
-        const currentTime = Date.now();
-        if (currentTime - this.lastEnemySpawn > this.enemySpawnInterval) {
-            this.enemies.push({
-                x: Math.random() * (this.width - 30),
-                y: -30,
-                width: 30,
-                height: 30,
-                speed: 2
-            });
-            this.lastEnemySpawn = currentTime;
-        }
-    }
-
-    update() {
         if (this.isGameOver) return;
 
-        // Update player position
-        if (this.keys.ArrowLeft) {
-            this.player.x = Math.max(0, this.player.x - this.player.speed);
+        switch (e.key) {
+            case 'ArrowLeft':
+                this.pacman.direction = 'left';
+                break;
+            case 'ArrowRight':
+                this.pacman.direction = 'right';
+                break;
+            case 'ArrowUp':
+                this.pacman.direction = 'up';
+                break;
+            case 'ArrowDown':
+                this.pacman.direction = 'down';
+                break;
         }
-        if (this.keys.ArrowRight) {
-            this.player.x = Math.min(this.width - this.player.width, this.player.x + this.player.speed);
+    }
+
+    movePacman() {
+        switch (this.pacman.direction) {
+            case 'left':
+                this.pacman.x -= this.pacman.speed;
+                break;
+            case 'right':
+                this.pacman.x += this.pacman.speed;
+                break;
+            case 'up':
+                this.pacman.y -= this.pacman.speed;
+                break;
+            case 'down':
+                this.pacman.y += this.pacman.speed;
+                break;
         }
 
-        // Update bullets
-        this.bullets = this.bullets.filter(bullet => {
-            bullet.y -= bullet.speed;
-            return bullet.y > -bullet.height;
-        });
+        // Keep Pac-Man within bounds
+        this.pacman.x = Math.max(0, Math.min(this.canvas.width - this.tileSize, this.pacman.x));
+        this.pacman.y = Math.max(0, Math.min(this.canvas.height - this.tileSize, this.pacman.y));
 
-        // Spawn and update enemies
-        this.spawnEnemy();
-        this.enemies = this.enemies.filter(enemy => {
-            enemy.y += enemy.speed;
-            
-            // Check collision with bullets
-            this.bullets = this.bullets.filter(bullet => {
-                if (this.checkCollision(bullet, enemy)) {
-                    this.score += 10;
-                    return false;
-                }
-                return true;
-            });
+        // Update mouth animation
+        this.pacman.mouthOpen += this.pacman.mouthSpeed;
+        if (this.pacman.mouthOpen > 0.5 || this.pacman.mouthOpen < 0) {
+            this.pacman.mouthSpeed = -this.pacman.mouthSpeed;
+        }
+    }
 
-            // Check collision with player
-            if (this.checkCollision(enemy, this.player)) {
-                this.isGameOver = true;
+    moveGhosts() {
+        this.ghosts.forEach(ghost => {
+            // Simple ghost movement
+            if (Math.random() < 0.02) {
+                const directions = ['left', 'right', 'up', 'down'];
+                ghost.direction = directions[Math.floor(Math.random() * directions.length)];
             }
 
-            return enemy.y < this.height && !this.checkCollision(enemy, this.player);
+            switch (ghost.direction) {
+                case 'left':
+                    ghost.x -= 1;
+                    break;
+                case 'right':
+                    ghost.x += 1;
+                    break;
+                case 'up':
+                    ghost.y -= 1;
+                    break;
+                case 'down':
+                    ghost.y += 1;
+                    break;
+            }
+
+            // Keep ghosts within bounds
+            ghost.x = Math.max(0, Math.min(this.canvas.width - this.tileSize, ghost.x));
+            ghost.y = Math.max(0, Math.min(this.canvas.height - this.tileSize, ghost.y));
         });
     }
 
-    checkCollision(rect1, rect2) {
-        return rect1.x < rect2.x + rect2.width &&
-               rect1.x + rect1.width > rect2.x &&
-               rect1.y < rect2.y + rect2.height &&
-               rect1.y + rect1.height > rect2.y;
+    checkCollisions() {
+        // Check dot collisions
+        this.dots = this.dots.filter(dot => {
+            const distance = Math.hypot(
+                this.pacman.x + this.tileSize/2 - (dot.x + 2),
+                this.pacman.y + this.tileSize/2 - (dot.y + 2)
+            );
+            if (distance < this.tileSize/2) {
+                this.score += 10;
+                return false;
+            }
+            return true;
+        });
+
+        // Check ghost collisions
+        this.ghosts.forEach(ghost => {
+            const distance = Math.hypot(
+                this.pacman.x + this.tileSize/2 - (ghost.x + this.tileSize/2),
+                this.pacman.y + this.tileSize/2 - (ghost.y + this.tileSize/2)
+            );
+            if (distance < this.tileSize) {
+                this.isGameOver = true;
+            }
+        });
+
+        // Check win condition
+        if (this.dots.length === 0) {
+            this.isGameOver = true;
+        }
     }
 
-    render() {
+    drawPacman() {
+        this.ctx.save();
+        this.ctx.translate(this.pacman.x + this.tileSize/2, this.pacman.y + this.tileSize/2);
+        
+        // Rotate based on direction
+        const rotationAngles = {
+            'right': 0,
+            'down': Math.PI/2,
+            'left': Math.PI,
+            'up': -Math.PI/2
+        };
+        this.ctx.rotate(rotationAngles[this.pacman.direction]);
+
+        // Draw Pac-Man
+        this.ctx.beginPath();
+        this.ctx.arc(0, 0, this.tileSize/2, this.pacman.mouthOpen * Math.PI, 
+                     (2 - this.pacman.mouthOpen) * Math.PI);
+        this.ctx.lineTo(0, 0);
+        this.ctx.fillStyle = 'yellow';
+        this.ctx.fill();
+        this.ctx.restore();
+    }
+
+    drawGhosts() {
+        this.ghosts.forEach(ghost => {
+            // Ghost body
+            this.ctx.beginPath();
+            this.ctx.arc(ghost.x + this.tileSize/2, ghost.y + this.tileSize/2, 
+                        this.tileSize/2, Math.PI, 0);
+            this.ctx.lineTo(ghost.x + this.tileSize, ghost.y + this.tileSize);
+            this.ctx.lineTo(ghost.x, ghost.y + this.tileSize);
+            this.ctx.closePath();
+            this.ctx.fillStyle = ghost.color;
+            this.ctx.fill();
+
+            // Ghost eyes
+            this.ctx.fillStyle = 'white';
+            this.ctx.beginPath();
+            this.ctx.arc(ghost.x + this.tileSize/3, ghost.y + this.tileSize/2, 3, 0, Math.PI * 2);
+            this.ctx.arc(ghost.x + (this.tileSize/3 * 2), ghost.y + this.tileSize/2, 3, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+    }
+
+    drawDots() {
+        this.ctx.fillStyle = 'white';
+        this.dots.forEach(dot => {
+            this.ctx.beginPath();
+            this.ctx.arc(dot.x + 2, dot.y + 2, 2, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+    }
+
+    gameLoop(timestamp) {
+        // Calculate delta time
+        const deltaTime = timestamp - this.lastTime;
+        this.lastTime = timestamp;
+
         // Clear canvas
-        this.ctx.fillStyle = '#000000';
-        this.ctx.fillRect(0, 0, this.width, this.height);
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Draw player
-        this.ctx.fillStyle = '#00FF00';
-        this.ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
+        if (!this.isGameOver) {
+            this.movePacman();
+            this.moveGhosts();
+            this.checkCollisions();
+        }
 
-        // Draw bullets
-        this.ctx.fillStyle = '#FFFFFF';
-        this.bullets.forEach(bullet => {
-            this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
-        });
-
-        // Draw enemies
-        this.ctx.fillStyle = '#FF0000';
-        this.enemies.forEach(enemy => {
-            this.ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
-        });
+        // Draw game elements
+        this.drawDots();
+        this.drawPacman();
+        this.drawGhosts();
 
         // Draw score
-        this.ctx.fillStyle = '#FFFFFF';
+        this.ctx.fillStyle = 'white';
         this.ctx.font = '20px Arial';
-        this.ctx.fillText(`Score: ${this.score}`, 10, 30);
+        this.ctx.fillText(`Score: ${this.score}`, 10, 20);
 
         // Draw game over screen
         if (this.isGameOver) {
             this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-            this.ctx.fillRect(0, 0, this.width, this.height);
-            
-            this.ctx.fillStyle = '#FFFFFF';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.fillStyle = 'white';
             this.ctx.font = '40px Arial';
             this.ctx.textAlign = 'center';
-            this.ctx.fillText('GAME OVER', this.width / 2, this.height / 2);
-            
+            this.ctx.fillText(
+                this.dots.length === 0 ? 'YOU WIN!' : 'GAME OVER', 
+                this.canvas.width/2, 
+                this.canvas.height/2
+            );
             this.ctx.font = '20px Arial';
-            this.ctx.fillText(`Final Score: ${this.score}`, this.width / 2, this.height / 2 + 40);
-            this.ctx.fillText('Press ENTER to restart', this.width / 2, this.height / 2 + 80);
+            this.ctx.fillText(
+                `Final Score: ${this.score}`,
+                this.canvas.width/2,
+                this.canvas.height/2 + 40
+            );
         }
-    }
 
-    resetGame() {
-        this.player.x = this.width / 2;
-        this.bullets = [];
-        this.enemies = [];
-        this.score = 0;
-        this.isGameOver = false;
-        this.lastEnemySpawn = 0;
-    }
-
-    gameLoop() {
-        this.update();
-        this.render();
-        requestAnimationFrame(() => this.gameLoop());
+        requestAnimationFrame(this.gameLoop);
     }
 }
