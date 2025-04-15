@@ -2,190 +2,190 @@ class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
-        this.cellSize = canvas.width / 3; // 3x3 grid for Tic Tac Toe
-        this.grid = Array(3).fill().map(() => Array(3).fill(''));
-        this.currentPlayer = 'X';
+        this.width = canvas.width;
+        this.height = canvas.height;
+        
+        // Game objects
+        this.player = {
+            x: this.width / 2,
+            y: this.height - 50,
+            width: 40,
+            height: 30,
+            speed: 5
+        };
+        
+        this.bullets = [];
+        this.enemies = [];
+        this.score = 0;
         this.isGameOver = false;
-        this.winner = null;
-
+        this.enemySpawnInterval = 1000; // Spawn enemy every 1 second
+        this.lastEnemySpawn = 0;
+        
         // Bind event handlers
-        this.handleClick = this.handleClick.bind(this);
-
-        // Add event listeners
-        this.canvas.addEventListener('click', this.handleClick);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
+        
+        // Key states
+        this.keys = {
+            ArrowLeft: false,
+            ArrowRight: false,
+            Space: false
+        };
+        
+        // Event listeners
+        window.addEventListener('keydown', this.handleKeyDown);
+        window.addEventListener('keyup', this.handleKeyUp);
     }
 
     init() {
-        this.render();
-        this.canvas.focus();
+        this.gameLoop();
     }
 
-    handleClick(e) {
+    handleKeyDown(e) {
+        if (e.code === 'ArrowLeft') this.keys.ArrowLeft = true;
+        if (e.code === 'ArrowRight') this.keys.ArrowRight = true;
+        if (e.code === 'Space') {
+            this.keys.Space = true;
+            this.shoot();
+        }
+        if (e.code === 'Enter' && this.isGameOver) {
+            this.resetGame();
+        }
+    }
+
+    handleKeyUp(e) {
+        if (e.code === 'ArrowLeft') this.keys.ArrowLeft = false;
+        if (e.code === 'ArrowRight') this.keys.ArrowRight = false;
+        if (e.code === 'Space') this.keys.Space = false;
+    }
+
+    shoot() {
+        if (!this.isGameOver) {
+            this.bullets.push({
+                x: this.player.x + this.player.width / 2 - 2,
+                y: this.player.y,
+                width: 4,
+                height: 10,
+                speed: 7
+            });
+        }
+    }
+
+    spawnEnemy() {
+        const currentTime = Date.now();
+        if (currentTime - this.lastEnemySpawn > this.enemySpawnInterval) {
+            this.enemies.push({
+                x: Math.random() * (this.width - 30),
+                y: -30,
+                width: 30,
+                height: 30,
+                speed: 2
+            });
+            this.lastEnemySpawn = currentTime;
+        }
+    }
+
+    update() {
         if (this.isGameOver) return;
 
-        // Get click position relative to canvas
-        const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // Convert to grid coordinates
-        const row = Math.floor(y / this.cellSize);
-        const col = Math.floor(x / this.cellSize);
-
-        // Make move if cell is empty
-        if (row >= 0 && row < 3 && col >= 0 && col < 3 && this.grid[row][col] === '') {
-            this.grid[row][col] = this.currentPlayer;
-            this.checkGameState();
-            this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
-            this.render();
+        // Update player position
+        if (this.keys.ArrowLeft) {
+            this.player.x = Math.max(0, this.player.x - this.player.speed);
         }
+        if (this.keys.ArrowRight) {
+            this.player.x = Math.min(this.width - this.player.width, this.player.x + this.player.speed);
+        }
+
+        // Update bullets
+        this.bullets = this.bullets.filter(bullet => {
+            bullet.y -= bullet.speed;
+            return bullet.y > -bullet.height;
+        });
+
+        // Spawn and update enemies
+        this.spawnEnemy();
+        this.enemies = this.enemies.filter(enemy => {
+            enemy.y += enemy.speed;
+            
+            // Check collision with bullets
+            this.bullets = this.bullets.filter(bullet => {
+                if (this.checkCollision(bullet, enemy)) {
+                    this.score += 10;
+                    return false;
+                }
+                return true;
+            });
+
+            // Check collision with player
+            if (this.checkCollision(enemy, this.player)) {
+                this.isGameOver = true;
+            }
+
+            return enemy.y < this.height && !this.checkCollision(enemy, this.player);
+        });
     }
 
-    checkGameState() {
-        // Check rows
-        for (let i = 0; i < 3; i++) {
-            if (this.grid[i][0] !== '' &&
-                this.grid[i][0] === this.grid[i][1] &&
-                this.grid[i][1] === this.grid[i][2]) {
-                this.isGameOver = true;
-                this.winner = this.grid[i][0];
-                return;
-            }
-        }
-
-        // Check columns
-        for (let j = 0; j < 3; j++) {
-            if (this.grid[0][j] !== '' &&
-                this.grid[0][j] === this.grid[1][j] &&
-                this.grid[1][j] === this.grid[2][j]) {
-                this.isGameOver = true;
-                this.winner = this.grid[0][j];
-                return;
-            }
-        }
-
-        // Check diagonals
-        if (this.grid[0][0] !== '' &&
-            this.grid[0][0] === this.grid[1][1] &&
-            this.grid[1][1] === this.grid[2][2]) {
-            this.isGameOver = true;
-            this.winner = this.grid[0][0];
-            return;
-        }
-
-        if (this.grid[0][2] !== '' &&
-            this.grid[0][2] === this.grid[1][1] &&
-            this.grid[1][1] === this.grid[2][0]) {
-            this.isGameOver = true;
-            this.winner = this.grid[0][2];
-            return;
-        }
-
-        // Check for draw
-        if (this.grid.every(row => row.every(cell => cell !== ''))) {
-            this.isGameOver = true;
-            this.winner = null;
-        }
+    checkCollision(rect1, rect2) {
+        return rect1.x < rect2.x + rect2.width &&
+               rect1.x + rect1.width > rect2.x &&
+               rect1.y < rect2.y + rect2.height &&
+               rect1.y + rect1.height > rect2.y;
     }
 
     render() {
         // Clear canvas
-        this.ctx.fillStyle = '#2C3E50';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.fillStyle = '#000000';
+        this.ctx.fillRect(0, 0, this.width, this.height);
 
-        // Draw grid lines
-        this.ctx.strokeStyle = '#ECF0F1';
-        this.ctx.lineWidth = 2;
+        // Draw player
+        this.ctx.fillStyle = '#00FF00';
+        this.ctx.fillRect(this.player.x, this.player.y, this.player.width, this.player.height);
 
-        // Vertical lines
-        for (let i = 1; i < 3; i++) {
-            this.ctx.beginPath();
-            this.ctx.moveTo(i * this.cellSize, 0);
-            this.ctx.lineTo(i * this.cellSize, this.canvas.height);
-            this.ctx.stroke();
-        }
+        // Draw bullets
+        this.ctx.fillStyle = '#FFFFFF';
+        this.bullets.forEach(bullet => {
+            this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+        });
 
-        // Horizontal lines
-        for (let i = 1; i < 3; i++) {
-            this.ctx.beginPath();
-            this.ctx.moveTo(0, i * this.cellSize);
-            this.ctx.lineTo(this.canvas.width, i * this.cellSize);
-            this.ctx.stroke();
-        }
+        // Draw enemies
+        this.ctx.fillStyle = '#FF0000';
+        this.enemies.forEach(enemy => {
+            this.ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+        });
 
-        // Draw X's and O's
-        this.ctx.font = `${this.cellSize * 0.8}px Arial`;
-        this.ctx.textAlign = 'center';
-        this.ctx.textBaseline = 'middle';
-
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                if (this.grid[i][j] === 'X') {
-                    this.ctx.fillStyle = '#E74C3C';
-                    this.ctx.fillText(
-                        'X',
-                        j * this.cellSize + this.cellSize / 2,
-                        i * this.cellSize + this.cellSize / 2
-                    );
-                } else if (this.grid[i][j] === 'O') {
-                    this.ctx.fillStyle = '#3498DB';
-                    this.ctx.fillText(
-                        'O',
-                        j * this.cellSize + this.cellSize / 2,
-                        i * this.cellSize + this.cellSize / 2
-                    );
-                }
-            }
-        }
-
-        // Draw current player indicator
+        // Draw score
+        this.ctx.fillStyle = '#FFFFFF';
         this.ctx.font = '20px Arial';
-        this.ctx.fillStyle = '#ECF0F1';
-        this.ctx.textAlign = 'left';
-        if (!this.isGameOver) {
-            this.ctx.fillText(`Current Player: ${this.currentPlayer}`, 10, this.canvas.height - 10);
-        }
+        this.ctx.fillText(`Score: ${this.score}`, 10, 30);
 
         // Draw game over screen
         if (this.isGameOver) {
             this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
+            this.ctx.fillRect(0, 0, this.width, this.height);
+            
+            this.ctx.fillStyle = '#FFFFFF';
             this.ctx.font = '40px Arial';
-            this.ctx.fillStyle = '#ECF0F1';
             this.ctx.textAlign = 'center';
-
-            if (this.winner) {
-                this.ctx.fillText(
-                    `Player ${this.winner} Wins!`,
-                    this.canvas.width / 2,
-                    this.canvas.height / 2
-                );
-            } else {
-                this.ctx.fillText(
-                    "It's a Draw!",
-                    this.canvas.width / 2,
-                    this.canvas.height / 2
-                );
-            }
-
+            this.ctx.fillText('GAME OVER', this.width / 2, this.height / 2);
+            
             this.ctx.font = '20px Arial';
-            this.ctx.fillText(
-                'Click anywhere to restart',
-                this.canvas.width / 2,
-                this.canvas.height / 2 + 40
-            );
-
-            // Add click listener for restart
-            const restartHandler = (e) => {
-                this.grid = Array(3).fill().map(() => Array(3).fill(''));
-                this.currentPlayer = 'X';
-                this.isGameOver = false;
-                this.winner = null;
-                this.render();
-                this.canvas.removeEventListener('click', restartHandler);
-            };
-            this.canvas.addEventListener('click', restartHandler);
+            this.ctx.fillText(`Final Score: ${this.score}`, this.width / 2, this.height / 2 + 40);
+            this.ctx.fillText('Press ENTER to restart', this.width / 2, this.height / 2 + 80);
         }
+    }
+
+    resetGame() {
+        this.player.x = this.width / 2;
+        this.bullets = [];
+        this.enemies = [];
+        this.score = 0;
+        this.isGameOver = false;
+        this.lastEnemySpawn = 0;
+    }
+
+    gameLoop() {
+        this.update();
+        this.render();
+        requestAnimationFrame(() => this.gameLoop());
     }
 }
